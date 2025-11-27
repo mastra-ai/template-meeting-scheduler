@@ -68,9 +68,9 @@ Once authorized, you can proceed with the requested email analysis and calendar 
       threads: { generateTitle: true },
     },
   }),
-  tools: async ({ requestContext }) => {
+  tools: async ({ runtimeContext }) => {
     const arcade = new Arcade();
-    const userId = requestContext.get('userId') as string;
+    const userId = runtimeContext.get('userId') as string;
 
     const [googleCalendarToolkit, gmailToolKit] = await Promise.all([
       arcade.tools.list({

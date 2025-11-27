@@ -17,7 +17,7 @@ export const mastra = new Mastra({
     middleware: [
       {
         handler: async (c, next) => {
-          const requestContext = c.get('requestContext');
+          const runtimeContext = c.get('runtimeContext');
 
           // TODO: Retrieve unique user id and set it on the request context
           // Consider using Authentication headers for user identification
@@ -25,7 +25,7 @@ export const mastra = new Mastra({
           // https://mastra.ai/en/docs/server-db/middleware#common-examples
           const userId = 'unique-user-id';
 
-          requestContext.set('userId', userId);
+          runtimeContext.set('userId', userId);
 
           return next();
         },
